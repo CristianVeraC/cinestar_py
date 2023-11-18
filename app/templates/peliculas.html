@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cartelera</title>
+</head>
+<body>
+    <h1>Cartelera</h1>
+    <div class="contenido">
+        {% for pelicula in peliculas %}
+            <div class="contenido-pelicula">
+                <h2>{{ pelicula['Titulo'] }}</h2>
+                <p>{{ pelicula['Sinopsis'] }}</p>
+                
+                <div class="botones-pelicula">
+                    <a href="{{ url_for('get_pelicula', id=pelicula['id']) }}">
+                        <img src="img/varios/btn-mas-info.jpg" width="120" height="30" alt="Ver info" />
+                    </a>
+                    
+                    <a href="https://www.youtube.com/v/{{ pelicula['Link'] }}" target="_blank">
+                        <img src="img/varios/btn-trailer.jpg" width="120" height="30" alt="Ver trailer" />
+                    </a>
+                </div>
+                
+                <img src="{{ url_for('static', filename='img/pelicula/' + str(pelicula['id']) + '.jpg') }}" width="160" height="226" alt="Portada de la película" /><br/><br/>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<title>Cine</title>
+<p>Nombre: {{ cine.nombre }}</p>
+<p>Dirección: {{ cine.direccion }}</p>
+<h2>Tarifas</h2>
+<ul>
+    {% for tarifa in tarifas %}
+        <li>{{ tarifa.tipo }} - {{ tarifa.precio }}</li>
+    {% endfor %}
+</ul>
+<h2>Cartelera</h2>
+<ul>
+    {% for pelicula in cartelera %}
+        <li>{{ pelicula.nombre }} - {{ pelicula.genero }}</li>
+    {% endfor %}
+</ul>
+<h2>Estrenos</h2>
+<ul>
+    {% for estreno in estrenos %}
+        <li>{{ estreno.nombre }} - {{ estreno.fecha }}</li>
+    {% endfor %}
+</ul>
+<div class="contenido">
+    {% for cine in cines %}
+        <div class="contenido-cine">
+            <h2>{{ cine.RazonSocial }}</h2>
+            <p>{{ cine.Direccion }} - {{ cine.Detalle }}</p>
+            <img src="img/cine/{{ cine.id }}.jpg" width="227" height="170" />
+            <a href="cine.html?id={{ cine.id }}">
+            <img src="img/varios/ico-info2.png" width="150" height="40" />
+            </a>
+        </div>
+    {% endfor %}
+</div>

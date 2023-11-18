@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+</head>
+<body>
+    <div class="contenido-interno">
+        <h2>{{ cine.RazonSocial }}</h2>
+        <div class="cine-info">
+            <p>{{ cine.Direccion }} - {{ cine.Detalle }}</p>
+            
+            <!-- Mostrando la tabla de tarifas del cine -->
+            <div class="tabla">
+                <div class="fila">
+                    <div class="celda-cabecera">Día</div>
+                    <div class="celda-cabecera">Precio</div>
+                </div>
+                {% for tarifa in tarifas %}
+                    <div class="fila">
+                        <div class="celda">{{ tarifa.DiasSemana }}</div>
+                        <div class="celda">{{ tarifa.Precio }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <div class="cine-info peliculas">
+                <div class="tabla">
+                    <div class="fila">
+                        <div class="celda-cabecera">Películas</div>
+                        <div class="celda-cabecera">Horarios</div>
+                    </div>
+                    {% for pelicula in cartelera %}
+                        <div class="fila">
+                            <div class="celda-titulo">{{ pelicula.Titulo }}</div>
+                            <div class="celda">{{ pelicula.Horarios }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

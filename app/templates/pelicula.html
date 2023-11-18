@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalles de la película</title>
+</head>
+<body>
+    <div>
+        <h1>Detalles de la película</h1>
+        {% if pelicula %}
+            <div>
+                <h2>{{ pelicula['Titulo'] }}</h2>
+                <p>{{ pelicula['Sinopsis'] }}</p>
+
+                <div>
+                    <div>
+                        <strong>Título Original:</strong>
+                        {{ pelicula['TituloOriginal'] }}
+                    </div>
+                    <div>
+                        <strong>Estreno:</strong>
+                        {{ pelicula['Estreno'] }}
+                    </div>
+                    <div>
+                        <strong>Género:</strong>
+                        {{ pelicula['Genero'] }}
+                    </div>
+                    <div>
+                        <strong>Director:</strong>
+                        {{ pelicula['Director'] }}
+                    </div>
+                    <div>
+                        <strong>Reparto:</strong>
+                        {{ pelicula['Reparto'] }}
+                    </div>
+                </div>
+            </div>
+            <img src="{{ url_for('static', filename='img/pelicula/' + str(pelicula['id']) + '.jpg') }}" width="160" height="226" alt="Portada de la película">
+        {% else %}
+            <p>No se encontró la película</p>
+        {% endif %}
+    </div>
+
+    {% if movie_data %}
+        <div>
+            <iframe src="https://www.youtube.com/embed/{{ pelicula['Link'] }}" allowfullscreen="true" width="580" height="400"></iframe>
+        </div>
+    {% endif %}
+</body>
+</html>
